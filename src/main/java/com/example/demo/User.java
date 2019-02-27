@@ -11,7 +11,7 @@ public class User {
 
     @NonNull
     @Size(min=3, max=20)
-    @Validator //create my own annotation and put above password field
+    //@Validator //create my own annotation and put above password field
     //https://www.baeldung.com/spring-mvc-custom-validator
     private String password;
 
