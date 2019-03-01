@@ -24,7 +24,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
             dictionaryRule = new DictionaryRule(
                     new WordListDictionary(WordLists.createFromReader(
                             // Reader around the word list file
-                            new FileReader[] {
+                            new FileReader[]{
                                     new FileReader(invalidPasswordList)
                             },
                             // True for case sensitivity, false otherwise
