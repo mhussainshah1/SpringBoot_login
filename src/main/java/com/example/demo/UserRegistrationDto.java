@@ -1,31 +1,31 @@
 package com.example.demo;
 
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotNull;
 
 public class UserRegistrationDto {
 
-    @NotEmpty
+    @NotNull
     private String firstName;
 
-    @NotEmpty
+    @NotNull
     private String lastName;
 
-    @NotEmpty
+    @NotNull
     @ValidPassword
     private String password;
 
-    @NotEmpty
+    @NotNull
     @ValidPassword
     private String confirmPassword;
 
     @Email
-    @NotEmpty
+    @NotNull
     private String email;
 
     @Email
-    @NotEmpty
+    @NotNull
     private String confirmEmail;
 
     @AssertTrue
@@ -86,5 +86,4 @@ public class UserRegistrationDto {
     public void setTerms(Boolean terms) {
         this.terms = terms;
     }
-
 }
