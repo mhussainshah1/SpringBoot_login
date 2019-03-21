@@ -56,7 +56,6 @@
             <div class="form-group"
                  th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
                 <div class="input-group">
-                    <span class="input-group-addon">@</span>
                     <input class="form-control"
                            id="email"
                            placeholder="E-mail"
@@ -69,7 +68,6 @@
             <div class="form-group"
                  th:classappend="${#fields.hasErrors('confirmEmail')}? 'has-error':''">
                 <div class="input-group">
-                    <span class="input-group-addon">@</span>
                     <input class="form-control"
                            id="confirmEmail"
                            placeholder="Confirm e-mail"
@@ -120,7 +118,7 @@
                 <input id="terms"
                        th:field="*{terms}"
                        type="checkbox"/>
-                <label class="control-label" for="terms">
+                <label for="terms">
                     I agree with the <a href="#">terms and conditions</a> for Registration.
                 </label>
                 <p class="error-message"
