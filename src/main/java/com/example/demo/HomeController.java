@@ -38,10 +38,7 @@ public class HomeController {
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -53,7 +50,7 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping("/login")
+    @RequestMapping("/login")
     public  String getLogin(){
         return "login";
     }
@@ -86,6 +83,11 @@ public class HomeController {
             return "registration";
         }
         return "redirect:/registration?success";
+    }
+
+    @GetMapping("/about")
+    public String getAbout(){
+        return "about";
     }
 
 }
