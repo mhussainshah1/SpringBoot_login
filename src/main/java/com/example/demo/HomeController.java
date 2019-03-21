@@ -51,18 +51,23 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
 
-    @GetMapping("/registration")
+    @GetMapping("/")
+    public  String getLogin(){
+        return "login";
+    }
+
+    @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new UserRegistrationDto());
         return "registration";
     }
 
-    @PostMapping("/registration")
+    @PostMapping("/register")
     public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto,
                                       BindingResult result) {
         if (result.hasErrors()) {
             return "registration";
         }
-        return "redirect:/registration?success";
+        return "redirect:/register?success";
     }
 }

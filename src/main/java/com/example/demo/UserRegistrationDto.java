@@ -1,15 +1,19 @@
 package com.example.demo;
 
-import org.hibernate.validator.constraints.Email;
+
 import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class UserRegistrationDto {
 
     @NotNull
+    @Size(min=3)
     private String firstName;
 
     @NotNull
+    @Size(min=3)
     private String lastName;
 
     @NotNull

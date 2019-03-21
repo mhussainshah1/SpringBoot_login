@@ -1,31 +1,35 @@
 <!doctype html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="base::header">
 
     <title>Login</title>
-
-    <!-- Bootstrap core CSS -->
-    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet"/>
-
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" th:href="@{/login.css}" type="text/css"/>
 </head>
 
 <body>
+<div th:replace="base:: nav"></div>
 
-<div class="container col-sm-4 topmargin">
-    <form class="form-signin" action = "#" th:action="@{/processform}" method = "post">
+<div class="container" align="center">
+
+    <h1>Login</h1>
+
+    <div th:if="${param.error}">
+        Invalid username or password
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out
+    </div>
+    <form class="form-signin" action = "#" th:action="@{/login}" method = "post">
         <img alt="" class="mb-4" height="72" src="" width="72">
         <h1 class="h3 mb-3 font-weight-normal" >Please sign in</h1>
 
-        <label class="sr-only" for="inputEmail">Email address</label>
-        <input autofocus class="form-control" id="inputEmail" placeholder="Email address" required type="email" name = "username">
+        <label for="inputEmail">Email address</label>
+        <input class="form-control" id="inputEmail" placeholder="Email address" required type="email" name = "username">
 
-        <label class="sr-only" for="inputPassword">Password</label>
-        <input class="form-control" id="inputPassword" placeholder="Password" required type="password" name="password">
+        <label for="inputPassword">Password:</label>
+        <input class="form-control" id="inputPassword"  placeholder="Password" required type="password">
 
         <div class="checkbox">
             <label>
@@ -33,10 +37,12 @@
             </label>
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted" align="center">&copy; 2018-2019</p>
-        <p><span th:if="${fields.hasErrors('')}" th:errors="*{password}"></span></p>
+        <button class="btn btn-primary" type="submit">Sign in</button> <br/>
+        <a href="/register">Register here</a>
     </form>
+
 </div>
+
+<div th:replace="base::footer"></div>
 </body>
 </html>
