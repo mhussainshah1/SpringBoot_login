@@ -67,9 +67,10 @@ public class HomeController {
         if (result.hasErrors()) {
             return "register";
         }
-        return "redirect:/login?success";
+        return "redirect:/register?success";
     }
 
+//We need to type registration in the url to see the registration page
     @GetMapping("/registration")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user" , new User());
@@ -84,10 +85,4 @@ public class HomeController {
         }
         return "redirect:/registration?success";
     }
-
-    @GetMapping("/about")
-    public String getAbout(){
-        return "about";
-    }
-
 }
