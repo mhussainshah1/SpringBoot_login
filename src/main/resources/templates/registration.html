@@ -21,12 +21,6 @@
                         <h2 class="text-center">Register</h2>
                         <div class="panel-body">
 
-                            <div th:if="${param.success}">
-                                <div class="alert alert-info">
-                                    You've successfully registered to our awesome app!
-                                </div>
-                            </div>
-
                             <form th:action="@{/registration}" th:object="${user}" method="post">
 
                                 <p class="error-message"

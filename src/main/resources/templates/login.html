@@ -18,9 +18,17 @@
     <div th:if="${param.error}">
         Invalid username or password
     </div>
+
     <div th:if="${param.logout}">
         You have been logged out
     </div>
+
+    <div th:if="${param.success}">
+        <div class="alert alert-info">
+            You've successfully registered to our awesome app!
+        </div>
+    </div>
+
     <form method="post" th:action="@{/login}">
         <img alt="" class="mb-4" height="72" src="" width="72">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>

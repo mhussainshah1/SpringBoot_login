@@ -67,7 +67,7 @@ public class HomeController {
         if (result.hasErrors()) {
             return "register";
         }
-        return "redirect:/register?success";
+        return "redirect:/login?success";
     }
 
     @GetMapping("/registration")
