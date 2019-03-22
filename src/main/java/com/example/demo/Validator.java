@@ -1,7 +1,10 @@
 package com.example.demo;
+/**
+ * Password cant be from invalid-password list
+ * Password cant be dictionary word
+ */
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
