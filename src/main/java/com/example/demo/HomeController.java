@@ -52,7 +52,7 @@ public class HomeController {
 
     @RequestMapping("/login")
     public  String getLogin(){
-        return "login";
+        return "comparison";
     }
 
     @GetMapping("/register")
