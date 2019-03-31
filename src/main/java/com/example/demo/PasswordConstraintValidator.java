@@ -1,15 +1,19 @@
 package com.example.demo;
 
 import org.passay.*;
+import org.passay.dictionary.ArrayWordList;
 import org.passay.dictionary.WordListDictionary;
 import org.passay.dictionary.WordLists;
 import org.passay.dictionary.sort.ArraysSort;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,9 +21,12 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 
     private DictionaryRule dictionaryRule;
 
+    @Autowired
+    InvalidPasswordRepository invalidPasswordRepository;
+
     @Override
     public void initialize(ValidPassword constraintAnnotation) {
-        try {
+/*        try {
             String invalidPasswordList = this.getClass().getResource("/invalid-password-list.txt").getFile();
             dictionaryRule = new DictionaryRule(
                     new WordListDictionary(WordLists.createFromReader(
@@ -34,7 +41,20 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
                     )));
         } catch (IOException e) {
             throw new RuntimeException("could not load word list", e);
+        }*/
+
+        ArrayList<String> passwordlist = new ArrayList<>();
+        for(InvalidPassword password : invalidPasswordRepository.findAll()){
+            System.out.println("invalid password = " + password.getValue());
+            passwordlist.add(password.getValue());
         }
+
+        Collections.sort(passwordlist);
+        dictionaryRule = new DictionaryRule(
+                new WordListDictionary(
+                        new ArrayWordList(passwordlist.stream().toArray(String[]::new))));
+
+        System.out.println(passwordlist);
     }
 
     @Override
