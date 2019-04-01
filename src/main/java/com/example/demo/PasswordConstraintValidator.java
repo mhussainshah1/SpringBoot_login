@@ -6,6 +6,8 @@ import org.passay.dictionary.WordListDictionary;
 import org.passay.dictionary.WordLists;
 import org.passay.dictionary.sort.ArraysSort;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -17,6 +19,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class PasswordConstraintValidator implements ConstraintValidator<ValidPassword, String> {
 
     private DictionaryRule dictionaryRule;
@@ -42,18 +45,20 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
         } catch (IOException e) {
             throw new RuntimeException("could not load word list", e);
         }*/
-
         List<String> passwordlist = new ArrayList<>();
-        for(InvalidPassword password : invalidPasswordRepository.findAll()){
-            System.out.println("invalid password = " + password.getValue());
-            passwordlist.add(password.getValue());
-        }
+        passwordlist.add("bar");
+        passwordlist.add("foobar");
+/*        if(invalidPasswordRepository.findAll()!= null){
+            for(InvalidPassword password : invalidPasswordRepository.findAll()){
+                System.out.println("invalid password = " + password.getValue());
+                passwordlist.add(password.getValue());
+            }
+        }*/
 
         Collections.sort(passwordlist);
         dictionaryRule = new DictionaryRule(
                 new WordListDictionary(
                         new ArrayWordList(passwordlist.stream().toArray(String[]::new))));
-
         System.out.println(passwordlist);
     }
 
@@ -78,13 +83,11 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 
                 // no whitespace
                 new WhitespaceRule(),
-
                 // no common passwords
                 dictionaryRule
         ));
 
         RuleResult result = validator.validate(new PasswordData(password));
-
         if (result.isValid()) {
             return true;
         }

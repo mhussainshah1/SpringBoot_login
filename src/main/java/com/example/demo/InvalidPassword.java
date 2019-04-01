@@ -5,16 +5,17 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class InvalidPassword {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
 
     @NotEmpty
     @Column(unique = true)
     private String value;
 
     public InvalidPassword() {
+        value = "";
     }
 
     public InvalidPassword(String value) {

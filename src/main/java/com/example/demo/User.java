@@ -1,10 +1,18 @@
 package com.example.demo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @NotEmpty
     private String firstName;
@@ -12,11 +20,11 @@ public class User {
     @NotEmpty
     private String lastName;
 
-    @NotEmpty
+    //@NotEmpty
     @ValidPassword
     private String password;
 
-    @NotEmpty
+    //@NotEmpty
     @ValidPassword
     private String confirmPassword;
 
@@ -32,6 +40,22 @@ public class User {
     private Boolean terms;
 
     public User() {
+    }
+
+    public User(@NotEmpty String firstName,
+                @NotEmpty String lastName,
+                String password,
+                String confirmPassword,
+                @Email @NotEmpty String email,
+                @Email @NotEmpty String confirmEmail,
+                @AssertTrue Boolean terms) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.email = email;
+        this.confirmEmail = confirmEmail;
+        this.terms = terms;
     }
 
     public String getFirstName() {
