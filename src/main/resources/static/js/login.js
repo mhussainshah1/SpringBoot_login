@@ -6,7 +6,7 @@ jQuery.validator.setDefaults({
 $("#myform").validate({
     rules: {
         password: "required",
-        password_again: {
+        confirmPassword: {
             equalTo: "#password"
         }
     }

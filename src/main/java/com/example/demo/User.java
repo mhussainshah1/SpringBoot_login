@@ -26,23 +26,23 @@ public class User {
     @ValidPassword
     private String password;
 
-    @Email
     @NotEmpty
+    @Email
     private String email;
 
     @AssertTrue
-    private Boolean terms;
+    private Boolean enable;
 
     public User() {
     }
 
-    public User(@NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty String username, @NotEmpty String password, @Email @NotEmpty String email, @AssertTrue Boolean terms) {
+    public User(@NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty String username, @NotEmpty String password, @Email @NotEmpty String email, @AssertTrue Boolean enable) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.terms = terms;
+        this.enable = enable;
     }
 
     public long getId() {
@@ -93,11 +93,11 @@ public class User {
         this.email = email;
     }
 
-    public Boolean getTerms() {
-        return terms;
+    public Boolean getEnable() {
+        return enable;
     }
 
-    public void setTerms(Boolean terms) {
-        this.terms = terms;
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
     }
 }
