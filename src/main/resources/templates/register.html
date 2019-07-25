@@ -12,7 +12,7 @@
 <div th:replace="base::nav"></div>
 
 <div class="container col-md-6 col-md-offset-3 text-center">
-    <div align="left">
+    <div class="text-left">
         <h2 class="text-center">Register</h2>
         <div th:if="${param.success}">
             <div class="alert alert-info">
@@ -119,7 +119,7 @@
             </div>
         </form>
     </div>
-    <div align="left">
+    <div class="text-left">
         Already registered? <a href="/" th:href="@{/login}">Login</a><br/>
         Forgot password? <a href="/" th:href="@{/forgot-password}">Reset password</a>
     </div>
