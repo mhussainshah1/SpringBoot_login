@@ -7,6 +7,7 @@ import org.passay.dictionary.WordLists;
 import org.passay.dictionary.sort.ArraysSort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintValidator;
@@ -19,7 +20,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+@Component
 public class PasswordConstraintValidator implements ConstraintValidator<ValidPassword, String> {
 
     private DictionaryRule dictionaryRule;
@@ -29,7 +30,8 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 
     @Override
     public void initialize(ValidPassword constraintAnnotation) {
-/*        try {
+        //Option 1 : Through File
+        /*try {
             String invalidPasswordList = this.getClass().getResource("/invalid-password-list.txt").getFile();
             dictionaryRule = new DictionaryRule(
                     new WordListDictionary(WordLists.createFromReader(
@@ -45,20 +47,18 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
         } catch (IOException e) {
             throw new RuntimeException("could not load word list", e);
         }*/
+
+        //Option 2 : Through Database
         List<String> passwordlist = new ArrayList<>();
-        passwordlist.add("bar");
-        passwordlist.add("foobar");
-/*        if(invalidPasswordRepository.findAll()!= null){
             for(InvalidPassword password : invalidPasswordRepository.findAll()){
-                System.out.println("invalid password = " + password.getValue());
                 passwordlist.add(password.getValue());
             }
-        }*/
 
         Collections.sort(passwordlist);
+
         dictionaryRule = new DictionaryRule(
                 new WordListDictionary(
-                        new ArrayWordList(passwordlist.stream().toArray(String[]::new))));
+                        new ArrayWordList(passwordlist.toArray(new String[0]))));
         System.out.println(passwordlist);
     }
 
@@ -93,7 +93,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
         }
 
         List<String> messages = validator.getMessages(result);
-        String messageTemplate = messages.stream().collect(Collectors.joining(","));
+        String messageTemplate = String.join(",", messages);
         context.buildConstraintViolationWithTemplate(messageTemplate)
                 .addConstraintViolation()
                 .disableDefaultConstraintViolation();

@@ -22,7 +22,14 @@ public class DataLoader implements CommandLineRunner {
         invalidPasswordRepository.save(new InvalidPassword("password123"));
 
 
-        User user = new User("Muhammad","Shah","Pa$$word1234","Pa$$word1234","a@a.com","a@a.com",true);
+        User user = new User("Muhammad",
+                "Shah",
+                "moe",
+                "Pa$$word1234",
+                "Pa$$word1234",
+                "a@a.com",
+                "a@a.com",
+                true);
         userRepository.save(user);
     }
 }

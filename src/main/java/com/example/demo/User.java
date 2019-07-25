@@ -20,11 +20,12 @@ public class User {
     @NotEmpty
     private String lastName;
 
-    //@NotEmpty
+    @NotEmpty
+    private String username;
+
     @ValidPassword
     private String password;
 
-    //@NotEmpty
     @ValidPassword
     private String confirmPassword;
 
@@ -42,20 +43,23 @@ public class User {
     public User() {
     }
 
-    public User(@NotEmpty String firstName,
-                @NotEmpty String lastName,
-                String password,
-                String confirmPassword,
-                @Email @NotEmpty String email,
-                @Email @NotEmpty String confirmEmail,
-                @AssertTrue Boolean terms) {
+    public User(@NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty String username, String password, String confirmPassword, @Email @NotEmpty String email, @Email @NotEmpty String confirmEmail, @AssertTrue Boolean terms) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
         this.email = email;
         this.confirmEmail = confirmEmail;
         this.terms = terms;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -72,6 +76,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
