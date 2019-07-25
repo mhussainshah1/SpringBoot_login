@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.test;
 /**
  * Password cant be from invalid-password list
  * Password cant be dictionary word

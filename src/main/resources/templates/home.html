@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
+
+<head th:replace="base::header">
     <title>Home</title>
 </head>
+
 <body>
+<div th:replace="base:: nav"></div>
 <h2>Home Page</h2>
 <p th:inline="text"> The login used was [[${usernameval}]]</p>
+<div th:replace="base::footer"></div>
 </body>
 </html>
