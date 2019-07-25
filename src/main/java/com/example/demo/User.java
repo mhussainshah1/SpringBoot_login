@@ -22,6 +22,7 @@ public class User {
     @NotEmpty
     private String username;
 
+    @NotEmpty
     @ValidPassword
     private String password;
 
@@ -29,14 +30,13 @@ public class User {
     @NotEmpty
     private String email;
 
-
     @AssertTrue
     private Boolean terms;
 
     public User() {
     }
 
-    public User(@NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty String username, String password, @Email @NotEmpty String email, @AssertTrue Boolean terms) {
+    public User(@NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty String username, @NotEmpty String password, @Email @NotEmpty String email, @AssertTrue Boolean terms) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

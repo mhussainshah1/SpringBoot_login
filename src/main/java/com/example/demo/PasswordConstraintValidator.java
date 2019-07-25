@@ -3,30 +3,22 @@ package com.example.demo;
 import org.passay.*;
 import org.passay.dictionary.ArrayWordList;
 import org.passay.dictionary.WordListDictionary;
-import org.passay.dictionary.WordLists;
-import org.passay.dictionary.sort.ArraysSort;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class PasswordConstraintValidator implements ConstraintValidator<ValidPassword, String> {
 
-    private DictionaryRule dictionaryRule;
-
     @Autowired
     InvalidPasswordRepository invalidPasswordRepository;
+    private DictionaryRule dictionaryRule;
 
     @Override
     public void initialize(ValidPassword constraintAnnotation) {
@@ -50,9 +42,9 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 
         //Option 2 : Through Database
         List<String> passwordlist = new ArrayList<>();
-            for(InvalidPassword password : invalidPasswordRepository.findAll()){
-                passwordlist.add(password.getValue());
-            }
+        for (InvalidPassword password : invalidPasswordRepository.findAll()) {
+            passwordlist.add(password.getValue());
+        }
 
         Collections.sort(passwordlist);
 

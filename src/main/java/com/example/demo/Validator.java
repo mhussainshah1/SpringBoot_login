@@ -18,15 +18,15 @@ public class Validator implements Serializable {
     private List<String> passwords;
 
     @Autowired
-    public Validator(){
+    public Validator() {
         passwords = new ArrayList<>();
-        Collections.addAll(passwords,"a","b","c","d","e","f","g","h","i","j");
+        Collections.addAll(passwords, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j");
     }
 
-    public boolean validatePassword(String password){
+    public boolean validatePassword(String password) {
         boolean valid = true;
-        for(String p :passwords){
-            if(p.equals(password)){
+        for (String p : passwords) {
+            if (p.equals(password)) {
                 valid = false;
                 System.out.println("password found " + p);
                 break;
@@ -35,7 +35,7 @@ public class Validator implements Serializable {
         return valid;
     }
 
-    public void addPassword(String password){
+    public void addPassword(String password) {
         passwords.add(password);
     }
 

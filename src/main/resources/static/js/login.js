@@ -3,7 +3,7 @@ jQuery.validator.setDefaults({
     debug: true,
     success: "valid"
 });
-$( "#myform" ).validate({
+$("#myform").validate({
     rules: {
         password: "required",
         password_again: {

@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>Makes "field" required to be the same as #other</title>
-    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+    <link href="https://jqueryvalidation.org/files/demo/site-demos.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
 </head>
 <body>
 <form id="myform">
     <label for="password">Password</label>
-    <input id="password" name="password" />
+    <input id="password" name="password"/>
     <br/>
     <label for="password_again">Again</label>
-    <input class="left" id="password_again" name="password_again" />
+    <input class="left" id="password_again" name="password_again"/>
     <br>
     <input type="submit" value="Validate!">
 </form>

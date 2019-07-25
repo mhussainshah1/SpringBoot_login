@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class InvalidPassword {

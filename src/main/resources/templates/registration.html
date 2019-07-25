@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css"/>
 
     <title>Registration</title>
 </head>
@@ -21,11 +21,11 @@
                         <h2 class="text-center">Register</h2>
                         <div class="panel-body">
 
-                            <form th:action="@{/registration}" th:object="${user}" method="post">
+                            <form method="post" th:action="@{/registration}" th:object="${user}">
 
                                 <p class="error-message"
-                                   th:if="${#fields.hasGlobalErrors()}"
                                    th:each="error : ${#fields.errors('global')}"
+                                   th:if="${#fields.hasGlobalErrors()}"
                                    th:text="${error}">Validation error</p>
 
 
@@ -35,8 +35,8 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-user color-blue"></i>
                                         </span>
-                                        <input id="firstName"
-                                               class="form-control"
+                                        <input class="form-control"
+                                               id="firstName"
                                                placeholder="First name"
                                                th:field="*{firstName}"/>
                                     </div>
@@ -50,8 +50,8 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-user color-blue"></i>
                                         </span>
-                                        <input id="lastName"
-                                               class="form-control"
+                                        <input class="form-control"
+                                               id="lastName"
                                                placeholder="Last name"
                                                th:field="*{lastName}"/>
                                     </div>
@@ -63,8 +63,8 @@
                                      th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
                                     <div class="input-group">
                                         <span class="input-group-addon">@</span>
-                                        <input id="email"
-                                               class="form-control"
+                                        <input class="form-control"
+                                               id="email"
                                                placeholder="E-mail"
                                                th:field="*{email}"/>
                                     </div>
@@ -76,8 +76,8 @@
                                      th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
                                     <div class="input-group">
                                         <span class="input-group-addon">@</span>
-                                        <input id="confirmEmail"
-                                               class="form-control"
+                                        <input class="form-control"
+                                               id="confirmEmail"
                                                placeholder="Confirm e-mail"
                                                th:field="*{email}"/>
                                     </div>
@@ -91,11 +91,11 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-lock"></i>
                                         </span>
-                                        <input id="password"
-                                               class="form-control"
+                                        <input class="form-control"
+                                               id="password"
                                                placeholder="password"
-                                               type="password"
-                                               th:field="*{password}"/>
+                                               th:field="*{password}"
+                                               type="password"/>
                                     </div>
                                     <ul class="text-left"
                                         th:each="error: ${#fields.errors('password')}">
@@ -111,11 +111,11 @@
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-lock"></i>
                                         </span>
-                                        <input id="confirmPassword"
-                                               class="form-control"
-                                               type="password"
+                                        <input class="form-control"
+                                               id="confirmPassword"
                                                placeholder="Confirm password"
-                                               th:field="*{password}"/>
+                                               th:field="*{password}"
+                                               type="password"/>
                                     </div>
                                     <ul class="text-left"
                                         th:each="error: ${#fields.errors('password')}">
@@ -128,8 +128,8 @@
                                 <div class="form-group"
                                      th:classappend="${#fields.hasErrors('terms')}? 'has-error':''">
                                     <input id="terms"
-                                           type="checkbox"
-                                           th:field="*{terms}"/>
+                                           th:field="*{terms}"
+                                           type="checkbox"/>
                                     <label class="control-label" for="terms">
                                         I agree with the <a href="#">terms and conditions</a> for Registration.
                                     </label>
@@ -138,7 +138,7 @@
                                        th:text="${error}">Validation error</p>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-block">Register</button>
+                                    <button class="btn btn-success btn-block" type="submit">Register</button>
                                 </div>
                             </form>
 
@@ -158,8 +158,8 @@
     </div>
 </div>
 
-<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
-<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}" type="text/javascript"></script>
+<script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}" type="text/javascript"></script>
 
 </body>
 </html>
