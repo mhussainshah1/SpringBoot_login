@@ -73,16 +73,16 @@
                                        th:text="${error}">Validation error</p>
                                 </div>
                                 <div class="form-group"
-                                     th:classappend="${#fields.hasErrors('confirmEmail')}? 'has-error':''">
+                                     th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
                                     <div class="input-group">
                                         <span class="input-group-addon">@</span>
                                         <input id="confirmEmail"
                                                class="form-control"
                                                placeholder="Confirm e-mail"
-                                               th:field="*{confirmEmail}"/>
+                                               th:field="*{email}"/>
                                     </div>
                                     <p class="error-message"
-                                       th:each="error: ${#fields.errors('confirmEmail')}"
+                                       th:each="error: ${#fields.errors('email')}"
                                        th:text="${error}">Validation error</p>
                                 </div>
                                 <div class="form-group"
@@ -106,7 +106,7 @@
                                     </ul>
                                 </div>
                                 <div class="form-group"
-                                     th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
+                                     th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="glyphicon glyphicon-lock"></i>
@@ -115,10 +115,10 @@
                                                class="form-control"
                                                type="password"
                                                placeholder="Confirm password"
-                                               th:field="*{confirmPassword}"/>
+                                               th:field="*{password}"/>
                                     </div>
                                     <ul class="text-left"
-                                        th:each="error: ${#fields.errors('confirmPassword')}">
+                                        th:each="error: ${#fields.errors('password')}">
                                         <li th:each="message : ${error.split(',')}">
                                             <p class="error-message"
                                                th:text="${message}"></p>

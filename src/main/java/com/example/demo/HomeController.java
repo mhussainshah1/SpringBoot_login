@@ -70,6 +70,11 @@ public class HomeController {
         return "redirect:/register?success";
     }
 
+    @GetMapping("/termsandconditions")
+    public String getTermsAndCondition() {
+        return "termsandconditions";
+    }
+
 //We need to type registration in the url to see the registration page
     @GetMapping("/registration")
     public String showRegistrationForm(Model model) {
@@ -86,8 +91,5 @@ public class HomeController {
         return "redirect:/registration?success";
     }
 
-    @GetMapping("/termsandconditions")
-    public String getTermsAndCondition() {
-        return "termsandconditions";
-    }
+
 }

@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+      xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="base::header">
-
     <title>Login</title>
 </head>
 
 <body>
 <div th:replace="base:: nav"></div>
 
-<div align="center" class="container col-md-6">
+<div class="container col-md-6 col-md-offset-3 text-center">
 
-    <h1>Login</h1>
+    <div class="jumbotron lead">
+        <h2>Login</h2>
+    </div>
 
     <div th:if="${param.error}">
         Invalid username or password
@@ -30,11 +30,9 @@
     </div>
 
     <form method="post" th:action="@{/login}">
-        <img alt="" class="mb-4" height="72" src="" width="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="username">User Name</label>
+            <label class="col-sm-2 col-form-label" for="username">Username:</label>
             <div class="col-sm-10">
                 <input class="form-control" id="username" name="username" placeholder="User Name" required type="text">
             </div>
