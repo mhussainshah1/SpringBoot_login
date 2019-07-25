@@ -85,4 +85,9 @@ public class HomeController {
         }
         return "redirect:/registration?success";
     }
+
+    @GetMapping("/termsandconditions")
+    public String getTermsAndCondition() {
+        return "termsandconditions";
+    }
 }

@@ -106,7 +106,7 @@
                 <input id="terms" th:field="*{terms}" type="checkbox"/>
 
                 <label for="terms">
-                    I agree with the <a href="#">terms and conditions</a> for Registration.
+                    I agree with the <a href="/termsandconditions">terms and conditions</a> for Registration.
                 </label>
                 <p class="error-message"
                    th:each="error : ${#fields.errors('terms')}"
