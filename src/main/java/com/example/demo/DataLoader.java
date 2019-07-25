@@ -25,10 +25,10 @@ public class DataLoader implements CommandLineRunner {
         User user = new User("Muhammad",
                 "Shah",
                 "moe",
-                "Pa$$word1234",
-                "Pa$$word1234",
-                "a@a.com",
-                "a@a.com",
+                "password123",
+                "password123",
+                "mhussainshah79@gmail.com",
+                "mhussainshah79@gmail.com",
                 true);
         userRepository.save(user);
     }
